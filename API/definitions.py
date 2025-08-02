@@ -1,5 +1,33 @@
-# Variables originales del DF de prueba
-columnas_df = ['Frecuencia Cannabis', 'Frecuencia Psilocibina', 'Propósito Cannabis', 'Propósito Psilocibina', 'Dependencia Cannabis', 'Dependencia Psilocibina', 'Abuso Cannabis', 'Abuso Psilocibina', 'Cantidad Tratamientos', 'Tipo de Dosis', 'Sesiones Macrodosis', 'Calificación Tratamiento', 'Historial Familiar', 'Condición', 'Efectos Positivos Cannabis', 'Efectos Negativos Cannabis', 'Efectos Positivos Psilocibina', 'Efectos Negativos Psilocibina']
+# Diccionario para renombrar las columnas que vengan del formulario a través de la interfaz
+dict_rename_external_columns = {
+    'autorizacion': 'Autorización',
+    'nombre': 'Nombre y Apellidos',
+    'edad': 'Edad',
+    'sexo': 'Sexo Biológico',
+    'historial_familiar': 'Historial Familiar',
+    'condiciones_medicas': 'Condición',
+    'frecuencia_cannabis': 'Frecuencia Cannabis',
+    'frecuencia_psilocibina': 'Frecuencia Psilocibina',
+    'proposito_cannabis': 'Propósito Cannabis',
+    'proposito_psilocibina': 'Propósito Psilocibina',
+    'dependencia_cannabis': 'Dependencia Cannabis',
+    'dependencia_psilocibina': 'Dependencia Psilocibina',
+    'abuso_cannabis': 'Abuso Cannabis',
+    'abuso_psilocibina': 'Abuso Psilocibina',
+    'efectos_positivos_cannabis': 'Efectos Positivos Cannabis',
+    'efectos_negativos_cannabis': 'Efectos Negativos Cannabis',
+    'efectos_positivos_psilocibina': 'Efectos Positivos Psilocibina',
+    'efectos_negativos_psilocibina': 'Efectos Negativos Psilocibina',
+    'sustancia_previa': 'Sustancia Utilizada',
+    'cantidad_tratamientos_previos': 'Cantidad Tratamientos',
+    'tipo_dosis': 'Tipo de Dosis',
+    'cantidad_tratamientos_macro': 'Sesiones Macrodosis',
+    'calificacion_tratamientos_previos': 'Calificación Tratamiento'
+}
+
+# Columnas necesarias para la predicción del modelo
+prediction_columns = ['Historial Familiar', 'Condición', 'Frecuencia Cannabis','Frecuencia Psilocibina','Propósito Cannabis','Propósito Psilocibina','Dependencia Cannabis','Dependencia Psilocibina','Abuso Cannabis','Abuso Psilocibina', 'Efectos Positivos Cannabis','Efectos Negativos Cannabis','Efectos Positivos Psilocibina','Efectos Negativos Psilocibina','Sustancia Utilizada','Cantidad Tratamientos','Tipo de Dosis','Sesiones Macrodosis','Calificación Tratamiento']
+
 
 # Lista de columnas categoricas con multiples respuestas para codificar con One Hot Encoding
 columnas_categoricas = [
@@ -11,7 +39,70 @@ columnas_categoricas = [
     'Efectos Negativos Psilocibina' 
 ]
 
+
+# Diccionarios de mapeo para codificar variables con única opción de respuesta
+dict_label_encoder = {
+    "frecuencia" : {
+        "Sin Dato": 0,
+        "Diario": 1,
+        "Varias veces a la semana": 2,
+        "Cada semana": 3,
+        "Varias veces al mes": 4,
+        "Cada mes": 5,
+        "Varias veces al año": 6,
+        "Cada año": 7
+    },
+
+    "sesiones_macro" : {
+        "Sin Dato": 0,
+        "Una sesión de un día": 1,
+        "1-5 sesiones de un día": 2,
+        "Más de 10 sesiones de un día": 3,
+        "Otros": 4
+    },
+
+    "cantidad_tratamientos" : {
+        "Sin Dato": 0,
+        "Ninguno": 0,
+        "Uno": 1,
+        "Dos": 2,
+        "Tres o más de tres": 3
+    }
+}
+
+# TODO: verificar si de verdad hay que eliminar
+# Columnas que se deben eliminar para que el DF se ajuste a las columnas del modelo
 columns_to_drop = ['Marca temporal', 'Autorización para el tratamiento de datos personales:', 'Edad', 'Sexo biológico', '¿Tienes algún comentario adicional?']
+
+
+# Diccionarios de mapeo para codificar el nivel de riesgo del tratamiento
+dict_encoder_riesgo_tratamiento2 = {
+    "cuatro_niveles": {
+        "Riesgo Desconocido": 0,
+        "Riesgo Bajo": 1,
+        "Riesgo Medio": 2,
+        "Riesgo Alto": 3
+    },
+
+    "tres_niveles": {
+        "Riesgo Bajo": 1,
+        "Riesgo Medio": 2,
+        "Riesgo Alto": 3
+    }
+}
+
+
+
+
+
+
+
+# Variables originales del DF de prueba
+columnas_df = ['Frecuencia Cannabis', 'Frecuencia Psilocibina', 'Propósito Cannabis', 'Propósito Psilocibina', 'Dependencia Cannabis', 'Dependencia Psilocibina', 'Abuso Cannabis', 'Abuso Psilocibina', 'Cantidad Tratamientos', 'Tipo de Dosis', 'Sesiones Macrodosis', 'Calificación Tratamiento', 'Historial Familiar', 'Condición', 'Efectos Positivos Cannabis', 'Efectos Negativos Cannabis', 'Efectos Positivos Psilocibina', 'Efectos Negativos Psilocibina']
+
+
+
+
 
 dict_rename_original_columns = {
     '¿Existe en tu familia un historial de alguno de los trastornos mencionados a continuación, o cualquier otra condición relevante?': 'Historial Familiar',

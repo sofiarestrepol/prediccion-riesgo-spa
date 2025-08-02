@@ -1,3 +1,4 @@
+from joblib import load
 import numpy as np
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.model_selection import train_test_split
@@ -17,6 +18,23 @@ def delete_columns(df):
     for col in df.columns:
         if col in columns_to_drop:
             df.drop(columns=[col], inplace=True)
+
+
+def encode_column(df, target_col, dict_encoder): 
+    df[target_col] = df[target_col].map(dict_encoder)
+
+    return df
+
+
+def load_model(model):
+    try:
+        model = load(model)
+
+    except Exception as e:
+        print(f'Ocurrió un error en la carga de los datos: {e}')
+
+    else:
+        return model
 
 
 def preprocess_data(df):
