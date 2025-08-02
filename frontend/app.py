@@ -256,7 +256,7 @@ try:
                 st.error(f"Error en la predicción: {response.status_code}")
 
 
-    st.divider()
+    # st.divider()
     # st.login() # Eventualmente, auth para que los usuarios autorizados puedan ver el resultado de la prediccion
 
 except requests.exceptions.Timeout:
