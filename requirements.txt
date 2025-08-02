@@ -7,3 +7,9 @@ python-dotenv==1.1.0
 scikit-learn==1.6.1
 scipy==1.13.1
 uvicorn==0.34.0
+sqlalchemy[asyncio]  
+psycopg2-binary>=2.9
+databases  
+requests
+supabase
+streamlit
