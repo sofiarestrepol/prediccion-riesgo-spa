@@ -206,8 +206,8 @@ try:
                 'Content-Type': 'application/json'
             }
 
-            # response = requests.post(DATABASE_CONFIG['PREDICT_EXTERNAL_RISK_URL'], json=payload, headers=headers, timeout=180)
-            response = requests.post("http://localhost:8000/predict-external-risk/", json=payload, headers=headers, timeout=180)
+            response = requests.post(DATABASE_CONFIG['PREDICT_EXTERNAL_RISK_URL'], json=payload, headers=headers, timeout=180)
+            # response = requests.post("http://localhost:8000/predict-external-risk/", json=payload, headers=headers, timeout=180)
 
             # st.text(f"Status code: {response.status_code}")
             # st.json(response.json())  
