@@ -23,7 +23,9 @@ if not st.session_state["logged_in"]:
     user = st.text_input("Usuario")
     password = st.text_input("Contraseña", type="password")
 
-    with open('frontend/config/admins.json', 'r') as f:
+    # TODO: Poner en config
+    # with open('frontend/config/admins.json', 'r') as f:
+    with open('config/admins.json', 'r') as f:
         data = json.load(f)
     admins = data["admins"]
 

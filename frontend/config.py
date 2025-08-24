@@ -14,6 +14,3 @@ DATABASE_CONFIG = {
     "DB_PASSWORD": os.getenv("DB_PASSWORD")
 }
 
-ADMIN_CONFIG = {
-    "ADMIN_URL": os.getenv("ADMIN_URL")
-}
