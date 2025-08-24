@@ -1,7 +1,7 @@
 # Consultar los resultados de la prediccion
 from fastapi import APIRouter
 from services.interface_service import *
-from utils.common import get_db
+# from utils.common import get_db
 from supabase import create_client, Client
 from config import DATABASE_CONFIG
 

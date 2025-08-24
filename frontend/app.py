@@ -3,8 +3,13 @@ import streamlit as st
 import requests
 from definitions import *
 from pprint import pprint
+import webbrowser
 
-from config import DATABASE_CONFIG
+from config import DATABASE_CONFIG, ADMIN_CONFIG
+
+st.page_link("pages/admin.py", label="Panel de Administración")
+st.set_page_config(page_title="Formulario Riesgo", initial_sidebar_state="collapsed")
+
 
 
 st.title("Predicción del Nivel de Riesgo para un Tratamiento Psicoterapéutico con Cannabis y Psilocibina")

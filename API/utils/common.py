@@ -1,7 +1,9 @@
+import pandas as pd
 import os, traceback, requests
 # from database import SessionLocal
 # from sqlalchemy.orm import Session
 from config import DATABASE_CONFIG
+import psycopg2
 
 def traceback_error(e):
     """
@@ -25,21 +27,21 @@ def traceback_error(e):
 
 
 
-def get_db():
-    """
-    Genera una sesión de base de datos SQLAlchemy proporcionada como generador.
+# def get_db():
+#     """
+#     Genera una sesión de base de datos SQLAlchemy proporcionada como generador.
 
-    Retorna:
-        - Session: Una sesión de SQLAlchemy configurada para la base de datos.
-    """
-    #  Crea una nueva instancia de sesión para la base de datos
-    db = SessionLocal()
-    try:
-        # Yield permite devolver la sesión de SQLAlchemy como un generador, apra ser utilziada en otras partes del código
-        yield db
-    finally:
-        # La sesión se cierra automáticamente después de su uso
-        db.close()
+#     Retorna:
+#         - Session: Una sesión de SQLAlchemy configurada para la base de datos.
+#     """
+#     #  Crea una nueva instancia de sesión para la base de datos
+#     db = SessionLocal()
+#     try:
+#         # Yield permite devolver la sesión de SQLAlchemy como un generador, apra ser utilziada en otras partes del código
+#         yield db
+#     finally:
+#         # La sesión se cierra automáticamente después de su uso
+#         db.close()
 
 
 
@@ -101,3 +103,7 @@ def create_user_supabase(data: dict):
         print("Request Exception:", err)
 
     return None
+
+
+
+
