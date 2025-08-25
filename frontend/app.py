@@ -5,7 +5,7 @@ from definitions import *
 from pprint import pprint
 import webbrowser
 
-from config import DATABASE_CONFIG, ADMIN_CONFIG
+from config import DATABASE_CONFIG
 
 st.page_link("pages/admin.py", label="Panel de Administración")
 st.set_page_config(page_title="Formulario Riesgo", initial_sidebar_state="collapsed")
